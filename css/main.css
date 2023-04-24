@@ -1,0 +1,120 @@
+header {
+  background-color: #0a101a;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  padding: 1em;
+  color: white;
+}
+header .container {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+header h1 {
+  margin: 0;
+  display: inline;
+  color: inherit;
+}
+header h1 a {
+  color: inherit;
+}
+header nav ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+header .hamburguer {
+  display: none;
+  width: var(--size-ref);
+  height: calc(var(--size-ref) / 2);
+  position: relative;
+  cursor: pointer;
+  z-index: 99;
+}
+header .hamburguer .slice {
+  transition: 0.4s transform, 0.4s left, 0.4s top, 0.1s opacity;
+  width: 100%;
+  height: 3px;
+  display: block;
+  background-color: white;
+}
+header .hamburguer .slice:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+header .hamburguer .slice:nth-child(2) {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-1px) translateZ(0);
+  will-change: transform;
+}
+header .hamburguer .slice:nth-child(3) {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateY(-2px);
+}
+header #hamburguer-toogle:checked ~ .hamburguer .slice:nth-child(2) {
+  opacity: 0;
+}
+header #hamburguer-toogle:checked ~ .hamburguer .slice:nth-child(1) {
+  --y: calc(calc(var(--size-ref) / 8) * 1);
+  --x: calc(calc(var(--size-ref) / 8) * 1);
+  transform: rotate(45deg) translateX(var(--x)) translateY(var(--y));
+  top: 0;
+}
+header #hamburguer-toogle:checked ~ .hamburguer .slice:nth-child(3) {
+  --y: calc(calc(var(--size-ref) / 8) * 1);
+  --x: calc(calc(var(--size-ref) / 8) * -1);
+  transform: rotate(-45deg) translateX(var(--x)) translateY(var(--y));
+  top: 0;
+}
+@media screen and (max-width: 700px) {
+  header .hamburguer {
+    display: block;
+  }
+  header nav {
+    display: none;
+  }
+  header #hamburguer-toogle:checked ~ nav {
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    top: 0;
+    right: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-color: #0a101a;
+    padding: 20px 30px;
+  }
+  header #hamburguer-toogle:checked ~ nav ul {
+    padding: 0;
+    flex-direction: column;
+    width: 100%;
+  }
+  header #hamburguer-toogle:checked ~ nav ul li {
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+  }
+  header #hamburguer-toogle:checked ~ nav ul li:hover {
+    background-color: deepskyblue;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}/*# sourceMappingURL=main.css.map */
