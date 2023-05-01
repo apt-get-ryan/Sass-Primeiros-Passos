@@ -1,0 +1,37 @@
+footer {
+    color: $header-color;
+    background-color: $header-bg;
+}
+
+.footer-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    .ruler {
+        width: 2px;
+        background-color: blueviolet;
+        display: block;
+        align-self: stretch;
+        padding: 1em 0;
+    }
+    p {
+        flex-grow: 1;
+        display: block;
+        margin: 0;
+    }
+    p:nth-last-child(1) {
+        text-align: right;
+    }
+    @media  screen and (max-width: 700px) {
+        & {
+            flex-direction: column;
+        }
+        .ruler {
+            padding: 1px;
+            margin: 1em 0;
+            width: 100%;
+        }
+    }
+}
